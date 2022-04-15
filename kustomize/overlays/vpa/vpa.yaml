@@ -1,0 +1,25 @@
+---
+
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: devops-toolkit
+  labels:
+    app: devops-toolkit
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: devops-toolkit
+  updatePolicy:
+    updateMode: Auto
+  resourcePolicy:
+    containerPolicies:
+      - containerName: '*'
+        minAllowed:
+          cpu: 1m
+          memory: 1Mi
+        maxAllowed:
+          cpu: 1
+          memory: 1Gi
+        controlledResources: ["cpu", "memory"]

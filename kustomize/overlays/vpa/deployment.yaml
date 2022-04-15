@@ -10,6 +10,7 @@ spec:
   selector:
     matchLabels:
       app: devops-toolkit
+  replicas: 2
   template:
     metadata:
       labels:
@@ -28,3 +29,10 @@ spec:
           httpGet:
             path: /
             port: 80
+        resources:
+          limits:
+            cpu: 100m
+            memory: 512Mi
+          requests:
+            cpu: 10m
+            memory: 256Mi

@@ -30,8 +30,8 @@ spec:
             port: 80
         resources:
           limits:
+            cpu: 200m
+            memory: 1Gi
+          requests:
             cpu: 100m
             memory: 512Mi
-          requests:
-            cpu: 50m
-            memory: 256Mi
